@@ -4,6 +4,7 @@
   margin: auto;
   align-content: center;
   top:-190px;
+  background-color: #ece4dd;
   z-index: 20;
 }
 
@@ -75,7 +76,7 @@ h1 .textoResaltado {
   width: 40vw;
   position: relative;
   background: #070606;
-  top: -80px;
+  top: -60px;
   float: right;
   border-top-left-radius: 120px;
   border-bottom-right-radius: 120px;
