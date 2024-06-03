@@ -10,6 +10,7 @@
   align-content: center;
   border-bottom-color: #ece4dd;
   border-bottom-style: solid;
+  position: relative;
 
 }
 .barraNavegacion li {
@@ -38,7 +39,8 @@
 
 .logoBarra{
   position:absolute;
+  left: -100px;
   top: 16px;
-  left: 45%;
   width: 80px;
+
 }

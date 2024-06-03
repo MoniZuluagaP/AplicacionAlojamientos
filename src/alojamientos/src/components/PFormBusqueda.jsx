@@ -1,5 +1,7 @@
 import React from 'react'
 import './PFormBusqueda.css'
+import casaPrincipal from '../assets/casaPortada2.png'
+
 
 export function PFormBusqueda() {
     return (
@@ -23,12 +25,13 @@ export function PFormBusqueda() {
                     </label>
                 </div>
                 <input type="submit" className="buscar" value="Buscar" />
+                {/*<BotonBusqueda type='submit' ClassName='buscar' value='Buscar' />*/}
 
             </form>
 
             <h1>VACACIONES PERFECTAS <br/><strong className="textoResaltado">EN EL LUGAR PERFECTO</strong></h1>
             <div id="casaPortada">
-                <img src='../assets/casaPortada2.png' alt="Casa de portada" />
+                <img src={casaPrincipal} alt="Casa de portada" />
             </div>
         </div>
     )

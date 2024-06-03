@@ -3,16 +3,15 @@
   width: 70vw;
   margin: auto;
   align-content: center;
-  top:-190px;
-  background-color: #ece4dd;
+  top:-150px;
   z-index: 20;
 }
 
 .formularioBusqueda {
   position: absolute;
-  z-index: 20;
+  z-index: 40;
   width: 50%;
-  top: 25%;
+  top: 30%;
   padding: 20px;
   border-radius: 20px;
   background-color: #333C3C;
@@ -63,6 +62,7 @@
   position: absolute;
   font-size: 35px;
   font-weight: normal;
+  z-index: 50;
 }
 
 h1 .textoResaltado {
@@ -70,15 +70,17 @@ h1 .textoResaltado {
   font-size: 40px;
   position: relative;
   right: -25%;
+  z-index: 50;
 }
 
 #casaPortada img{
-  width: 40vw;
+  width: 38vw;
   position: relative;
-  background: #070606;
   top: -60px;
   float: right;
   border-top-left-radius: 120px;
   border-bottom-right-radius: 120px;
   height: 45vh;
+  background-color: #070606;
+  z-index: 30;
 }
