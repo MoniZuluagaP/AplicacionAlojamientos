@@ -74,9 +74,10 @@ h1 .textoResaltado {
 #casaPortada img{
   width: 40vw;
   position: relative;
-  bottom: 145px;
+  background: #070606;
+  top: -80px;
   float: right;
   border-top-left-radius: 120px;
   border-bottom-right-radius: 120px;
-  height: 435px;
+  height: 45vh;
 }
