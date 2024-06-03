@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik'; // para mejor gestion de formulario y validaciones (npm install formik yup)
 import * as Yup from 'yup';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';   // libreria para mostrar notificacion (npm install react-toastify)
 import 'react-toastify/dist/ReactToastify.css';
 
 // Esquema de validación con Yup
