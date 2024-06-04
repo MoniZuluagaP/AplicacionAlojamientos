@@ -1,5 +1,6 @@
 /* Establecer la clase de contenedor principal como un contenedor flexible */
-.contenedor-flex {
+
+.PorQueElegirnos{
   display: flex;
 }
 
@@ -18,18 +19,18 @@
 }
 
 /* Estilo para la primera imagen */
-.imagen-1 {
-  max-width: 300px;
+.imagen_empresa1 {
+  max-width: 350px;
 }
 
 /* Estilo para la segunda imagen */
-.imagen-2 {
-  max-width: 260px;
+.imagen_empresa2 {
+  max-width: 310px;
 }
 
 /* Estilo para la tercera imagen */
-.imagen-3 {
-  max-width: 350px;
+.imagen_empresa3 {
+  max-width: 380px;
 }
 
 /* Estilo para las barras superpuestas */
