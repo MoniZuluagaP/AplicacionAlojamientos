@@ -16,20 +16,21 @@
   width: 100%;
   display: block;
   filter: drop-shadow(0px 0px 0px rgba(0,0,0,0.5));
+  left: -90px;
 }
 
 /* Estilo para la primera imagen */
-.imagen_empresa1 {
+.imagen-1 {
   max-width: 350px;
 }
 
 /* Estilo para la segunda imagen */
-.imagen_empresa2 {
+.imagen-2 {
   max-width: 310px;
 }
 
 /* Estilo para la tercera imagen */
-.imagen_empresa3 {
+.imagen-3 {
   max-width: 380px;
 }
 
