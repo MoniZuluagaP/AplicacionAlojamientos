@@ -1,21 +1,20 @@
-import React from 'react'
-import {CardDestacada} from "./CardDestacada";
-import './SeccionDestacadas.css'
+import React from 'react';
+import {CardDestacada} from './CardDestacada';
+import './SeccionDestacadas.css';
 
-
-export default function SeccionDestacadas() {
+export function SeccionDestacadas() {
     return (
         <div>
             <div className="propDestacadas1">
-                <CardDestacada nombre ='Destacada1'/>
-                <CardDestacada nombre ='Destacada2'/>
-                <CardDestacada nombre ='Destacada3'/>
+                <CardDestacada key="1" nombre="Destacada1" />
+                <CardDestacada key="2" nombre="Destacada2" />
+                <CardDestacada key="3" nombre="Destacada3" />
             </div>
 
             <div className="propDestacadas2">
-                <CardDestacada nombre ='Destacada4'/>
-                <CardDestacada nombre ='Destacada5'/>
-                <CardDestacada nombre ='Destacada6'/>
+                <CardDestacada key="4" nombre="Destacada4" />
+                <CardDestacada key="5" nombre="Destacada5" />
+                <CardDestacada key="6" nombre="Destacada6" />
             </div>
             <div className="navDestacadas">
                 <ul>
@@ -26,8 +25,10 @@ export default function SeccionDestacadas() {
                     <li><a href="#">5</a></li>
                 </ul>
 
-                <button className="buscar"><a href="#">Ver todas</a></button>
+                <a href="#" className="buscar">Ver todas</a>
             </div>
         </div>
-    )
+    );
 }
+
+export default SeccionDestacadas;

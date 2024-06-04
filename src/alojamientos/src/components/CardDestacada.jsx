@@ -1,14 +1,15 @@
-import React from 'react'
-import './CardDestacada.css'
-import casa from '../assets/casa-portada.png'
+import React from 'react';
+import './CardDestacada.css';
+import casa from '../assets/casa-portada.png';
 
-export function CardDestacada(props) {
+export function CardDestacada({ nombre }) {
     return (
-        <card className ='cdest'>
-            <h4><a href="">{props.nombre}</a></h4>
-            <img src={casa}/>
-            <p className="infoPropiedadDestacada"><span className="enfasisTexto">Lo mejor de la propiedad: Lorem ipsum dolor sit amet! Officiis.</span>
+        <div className="cdest">
+            <h4><a href="#">{nombre}</a></h4>
+            <img src={casa} alt={`Imagen de ${nombre}`} />
+            <p className="infoPropiedadDestacada">
+                <span className="enfasisTexto">Lo mejor de la propiedad: Lorem ipsum dolor sit amet! Officiis.</span>
             </p>
-        </card>
-    )
+        </div>
+    );
 }

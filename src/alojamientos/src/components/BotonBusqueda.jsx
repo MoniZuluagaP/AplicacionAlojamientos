@@ -1,8 +1,13 @@
-import React from 'react'
-import './BotonBusqueda.css'
+import React from 'react';
+import './BotonBusqueda.css';
 
-export function BotonBusqueda(props) {
+export function BotonBusqueda({ className, value = "Buscar", ...props }) {
     return (
-        <input type="submit" className={props.className} value="Buscar" />
-    )
+        <input 
+            type="submit" 
+            className={className} 
+            value={value} 
+            {...props} 
+        />
+    );
 }

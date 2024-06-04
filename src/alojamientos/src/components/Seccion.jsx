@@ -1,14 +1,12 @@
-import React from 'react'
-import './Seccion.css'
+import React from 'react';
+import './Seccion.css';
+import SeccionDestacadas from './SeccionDestacadas';
 
-import SeccionDestacadas from "./SeccionDestacadas";
-
-export function Seccion(props) {
+export function Seccion({ className, nombre }) {
     return (
-        <section className={props.ClassName}>
-            <h3 className="tituloSeccion">{props.nombre}</h3>
-            {/*<SeccionDestacadas />*/}
-
+        <section className={className}>
+            <h3 className="tituloSeccion">{nombre}</h3>
+            {/* <SeccionDestacadas /> */}
         </section>
-    )
+    );
 }

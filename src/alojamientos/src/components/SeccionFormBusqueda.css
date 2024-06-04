@@ -1,0 +1,20 @@
+/* Estilos de las imágenes */
+  
+/* Estilos del botón */
+  .boton-alquileres-temporales {
+    background-color: #333c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 400px;
+    height: 50px;
+    position: relative;
+    top: -30px;
+    left: -230px;
+  }

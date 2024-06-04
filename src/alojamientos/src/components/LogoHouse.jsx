@@ -1,5 +1,10 @@
-export const LogoHouse = (props) => {
-    return <img src= {props.src}
-                className={props.ClassName}
-                alt={props.alt} />
+export const LogoHouse = ({ src, className, alt, ...props }) => {
+    return (
+        <img 
+            src={src} 
+            className={className} 
+            alt={alt} 
+            {...props} 
+        />
+    );
 }

@@ -1,38 +1,19 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {Home} from './components/Home';
+import Institucional from './components/Institucional';
+import Administracion from './administracion/Administracion';
 import './App.css';
-import './components/Main.css';
-import Header from "./components/Header";
-import { PFormBusqueda } from "./components/PFormBusqueda";
-import { Seccion } from "./components/Seccion";
-import { Presentacion } from "./components/Presentacion";
-import SeccionDestacadas from "./components/SeccionDestacadas";
-import { SeccionTiposA } from "./components/SeccionTiposA";
-import { Footer } from "./components/Footer";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Administracion from '../src/administracion/Administracion';
-import BarraNav from '../src/components/BarraNav';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <BarraNav />
-        <Switch>
-          <Route path="/administracion" component={Administracion} />
-          <Route path="/" exact>
-            <PFormBusqueda />
-            <main className="main">
-              <Presentacion />
-              <Seccion className='destacadas' nombre='ALOJAMIENTOS DESTACADOS' />
-              <SeccionDestacadas />
-              <Seccion className='categoriaPropiedades' nombre='TIPOS DE ALOJAMIENTOS' />
-              <SeccionTiposA className='cardsCategorias' />
-            </main>
-          </Route>
-          {/* Agrega más rutas aquí si es necesario */}
-        </Switch>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/institucional" element={<Institucional />} />
+          <Route path="/administracion" element={<Administracion />} />
+        </Routes>
       </div>
     </Router>
   );

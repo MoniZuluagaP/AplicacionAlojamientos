@@ -36,3 +36,5 @@ export function PFormBusqueda() {
         </div>
     )
 }
+
+export default PFormBusqueda;

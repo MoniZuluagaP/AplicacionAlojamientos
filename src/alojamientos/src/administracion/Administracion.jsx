@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import CrearAlojamiento from '../administracion/componentes/CrearAlojamiento';
-import ActualizarAlojamiento from '../administracion/componentes/ActualizarAlojamiento';
-import EliminarAlojamiento from '../administracion/componentes/EliminarAlojamiento';
-import ListarAlojamiento from '../administracion/componentes/ListarAlojamiento';
+import CrearAlojamiento from './componentes/CrearAlojamiento';
+import ActualizarAlojamiento from './componentes/ActualizarAlojamiento';
+import EliminarAlojamiento from './componentes/EliminarAlojamiento';
+import ListarAlojamiento from './componentes/ListarAlojamiento';
+import './Admin.css';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Administracion = () => {
-  const [section, setSection] = useState('listar');
+  const [section, setSection] = useState(null); // Inicialmente null para no mostrar ningún componente
 
   return (
     <div>
       <ToastContainer />
       <h1>Administración de Alojamientos</h1>
-      <div>
+      <div className="menu-container">
         <button onClick={() => setSection('crear')}>Crear Alojamiento</button>
         <button onClick={() => setSection('actualizar')}>Actualizar Alojamiento</button>
         <button onClick={() => setSection('eliminar')}>Eliminar Alojamiento</button>

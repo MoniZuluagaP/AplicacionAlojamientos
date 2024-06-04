@@ -3,7 +3,7 @@
   width: 70vw;
   margin: auto;
   align-content: center;
-  top:-150px;
+  top:-13vw;
   z-index: 20;
 }
 
@@ -76,7 +76,8 @@ h1 .textoResaltado {
 #casaPortada img{
   width: 38vw;
   position: relative;
-  top: -60px;
+  top: 8px;
+  left: 80px;
   float: right;
   border-top-left-radius: 120px;
   border-bottom-right-radius: 120px;
