@@ -11,7 +11,7 @@ export function BarraNav() {
                 <li><Link to="/">HOME</Link></li>
                 <li><Link to="/institucional">INSTITUCIONAL</Link></li>
                 <li><Link to="/administracion">ADMINISTRACION</Link></li>
-                <li><Link to="/contacto">CONTACTANOS</Link></li>
+                <li><Link to="/contactanos">CONTACTANOS</Link></li>
                 <li><Link to="/registro">REGISTRO</Link></li>
             </ul>
         </nav>
