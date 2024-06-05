@@ -10,7 +10,7 @@ function Institucional() {
   return (
     <div className="institucional">
       <Header />
-      <SeccionFormBusqueda/>
+      {/* <SeccionFormBusqueda/> */}
       <SeccionInstitucional />
       <SeccionPorQueElegirnos />
       <NuestroEquipo />

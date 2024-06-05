@@ -30,7 +30,8 @@ export default function Contacto() {
   return (
     <Fragment>
       <section className="seccion-contacto">
-        <h2>Comunicate con nosotros</h2>
+
+        {/* <h2>Comunicate con nosotros</h2> */}
         <form className="contact-form">
           <div className="form-group">
             <label htmlFor="nombre">Nombre:</label>

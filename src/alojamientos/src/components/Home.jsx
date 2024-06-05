@@ -8,7 +8,6 @@ import {SeccionTiposA} from "./SeccionTiposA";
 import {Footer} from "./Footer";
 
 
-
 export function Home() {
     return (
         <div>

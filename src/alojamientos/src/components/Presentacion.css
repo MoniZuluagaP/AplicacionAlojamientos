@@ -14,3 +14,7 @@
 h2 .textoResaltado {
   font-weight: bolder;
 }
+
+h2 {
+  background-color: #ECE4DD;
+}

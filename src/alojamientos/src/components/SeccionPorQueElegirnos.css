@@ -2,6 +2,7 @@
 
 .PorQueElegirnos{
   display: flex;
+  width: 90%
 }
 
 /* Establecer el estilo para el contenedor individual */
@@ -9,6 +10,7 @@
   position: relative;
   margin: 50px 120px;
   overflow: visible;
+  
 }
 
 /* Estilo para las imágenes de la empresa */
