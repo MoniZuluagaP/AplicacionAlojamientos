@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from "./Header";
-import {PFormBusqueda} from "./PFormBusqueda";
-import {Presentacion} from "./Presentacion";
-import {Seccion} from "./Seccion";
-import SeccionDestacadas from "./SeccionDestacadas";
-import {SeccionTiposA} from "./SeccionTiposA";
-import {Footer} from "./Footer";
+import Header from "./componentes/Header";
+import {PFormBusqueda} from "./componentes/PFormBusqueda";
+import {Presentacion} from "./componentes/Presentacion";
+import {Seccion} from "./componentes/Seccion";
+import SeccionDestacadas from "./componentes/SeccionDestacadas";
+import {SeccionTiposA} from "./componentes/SeccionTiposA";
+import {Footer} from "./componentes/Footer";
 
 
 export function Home() {

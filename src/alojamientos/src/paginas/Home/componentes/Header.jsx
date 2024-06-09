@@ -1,6 +1,6 @@
 import React from 'react'
-import './Header.css'
-import {BarraNav} from "./BarraNav"
+import '../css/Header.css'
+import {BarraNav} from "../componentes/BarraNav"
 
 export default function Header() {
     return (

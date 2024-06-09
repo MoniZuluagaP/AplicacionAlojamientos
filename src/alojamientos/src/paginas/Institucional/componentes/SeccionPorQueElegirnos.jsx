@@ -1,10 +1,10 @@
 import React from 'react';
-import './SeccionPorQueElegirnos.css';
+import '../css/SeccionPorQueElegirnos.css';
 
 // Importa las imágenes
-import imagen_empresa1 from '../assets/imagen_empresa1.jpg';
-import imagen_empresa2 from '../assets/imagen_empresa2.jpg';
-import imagen_empresa3 from '../assets/imagen_empresa3.jpg';
+import imagen_empresa1 from '../../assets/imagen_empresa1.jpg';
+import imagen_empresa2 from '../../assets/imagen_empresa2.jpg';
+import imagen_empresa3 from '../../assets/imagen_empresa3.jpg';
 
 function PorQueElegirnos() {
   return (

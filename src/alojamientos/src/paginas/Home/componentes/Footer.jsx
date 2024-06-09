@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../assets/casalogo.png';
-import './Footer.css';
+import logo from '../../assets/casalogo.png';
+import '../css/Footer.css';
 
 export function Footer() {
     return (

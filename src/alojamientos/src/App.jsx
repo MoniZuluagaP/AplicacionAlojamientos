@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {Home} from './components/Home';
-import Institucional from './components/Institucional';
-import Administracion from './administracion/Administracion';
-import Contactanos from './components/Contactanos';
+import {Home} from '../src/paginas/Home/Home';
+import Institucional from '../src/paginas/Institucional/Institucional';
+import Administracion from '../src/paginas/administracion/Administracion';
+import Contactanos from '../src/paginas/Contactanos/Contactanos';
 
 import './App.css';
 

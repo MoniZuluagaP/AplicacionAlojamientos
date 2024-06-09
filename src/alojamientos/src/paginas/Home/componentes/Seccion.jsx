@@ -1,5 +1,5 @@
 import React from 'react';
-import './Seccion.css';
+import '../css/Seccion.css';
 import SeccionDestacadas from './SeccionDestacadas';
 
 export function Seccion({ className, nombre }) {

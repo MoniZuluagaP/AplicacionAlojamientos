@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardCategorias.css';
+import '../css/CardCategorias.css';
 
 export function CardCategorias({ nombre }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import './CardDestacada.css';
-import casa from '../assets/casa-portada.png';
+import '../css/CardDestacada.css';
+import casa from '../../assets/casa-portada.png';
 
 export function CardDestacada({ nombre }) {
     return (

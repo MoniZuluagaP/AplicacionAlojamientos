@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from "./Header";
-import PFormBusqueda from "./PFormBusqueda";
-import Footer from "./Footer";
+import Header from "../Home/componentes/Header";
+import PFormBusqueda from "../Home/componentes/PFormBusqueda";
+import Footer from "../Home/componentes/Footer";
 import Contacto from "./FormularioContacto";
-import {Seccion} from './Seccion';
+import {Seccion} from '../Home/componentes/Seccion';
  
 
 

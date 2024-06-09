@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './BarraNav.css';
-import logo from '../assets/casalogo.png';
+import '../css/BarraNav.css';
+import logo from '../../assets/casalogo.png';
 
 export function BarraNav() {
     return (

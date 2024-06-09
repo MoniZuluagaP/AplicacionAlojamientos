@@ -1,6 +1,6 @@
 import React from 'react';
-import './SeccionInstitucional.css';
-import { Seccion } from './Seccion';
+import '../css/SeccionInstitucional.css';
+import { Seccion } from '../../Home/componentes/Seccion';
 
 function SeccionInstitucional() {
   return (

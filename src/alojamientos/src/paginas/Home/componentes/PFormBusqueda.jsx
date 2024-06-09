@@ -1,6 +1,6 @@
 import React from 'react'
-import './PFormBusqueda.css'
-import casaPrincipal from '../assets/casaPortada2.png'
+import '../css/PFormBusqueda.css'
+import casaPrincipal from '../../assets/casaPortada2.png'
 
 
 export function PFormBusqueda() {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FormularioContacto.css';
+import '../Contactanos/css/FormularioContacto.css';
 
 export default function FormularioContacto() {
   const [nombre, setNombre] = useState("");

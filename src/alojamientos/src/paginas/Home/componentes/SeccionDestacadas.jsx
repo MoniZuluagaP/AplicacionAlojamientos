@@ -1,6 +1,6 @@
 import React from 'react';
-import {CardDestacada} from './CardDestacada';
-import './SeccionDestacadas.css';
+import {CardDestacada} from '../componentes/CardDestacada';
+import '../css/SeccionDestacadas.css';
 
 export function SeccionDestacadas() {
     return (

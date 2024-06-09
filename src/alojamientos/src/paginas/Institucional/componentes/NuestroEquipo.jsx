@@ -1,12 +1,12 @@
 import React from 'react';
-import './NuestroEquipo.css';
+import '../css/NuestroEquipo.css';
 
 // Importar las imágenes
-import foto_miembro1 from '../assets/foto_miembro1.jpg';
-import foto_miembro2 from '../assets/foto_miembro2.jpg';
-import foto_miembro3 from '../assets/foto_miembro3.jpg';
-import foto_miembro4 from '../assets/foto_miembro4.jpg';
-import { Seccion } from './Seccion';
+import foto_miembro1 from '../../assets/foto_miembro1.jpg';
+import foto_miembro2 from '../../assets/foto_miembro2.jpg';
+import foto_miembro3 from '../../assets/foto_miembro3.jpg';
+import foto_miembro4 from '../../assets/foto_miembro4.jpg';
+import { Seccion } from '../../Home/componentes/Seccion';
 
 function NuestroEquipo() {
   const fotosMiembros = [
@@ -20,10 +20,6 @@ function NuestroEquipo() {
     <section className="nuestro-equipo">
       <div className="team-title">
       <Seccion ClassName="seccion-contacto1" nombre='ESTE ES NUESTRO EQUIPO' />
-        {/* <h2>Este</h2>
-        <h2>es</h2>
-        <h2>nuestro</h2>
-        <h2>equipo</h2> */}
       </div>
       <div className="team-photos">
         {fotosMiembros.map((miembro) => (

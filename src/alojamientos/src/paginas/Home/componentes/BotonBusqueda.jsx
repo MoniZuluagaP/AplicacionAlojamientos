@@ -1,5 +1,5 @@
 import React from 'react';
-import './BotonBusqueda.css';
+import '../css/BotonBusqueda.css';
 
 export function BotonBusqueda({ className, value = "Buscar", ...props }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import { CardCategorias } from './CardCategorias';
-import './SeccionTiposA.css';
+import { CardCategorias } from '../componentes/CardCategorias';
+import '../css/SeccionTiposA.css';
 
 export function SeccionTiposA({ className }) {
     return (

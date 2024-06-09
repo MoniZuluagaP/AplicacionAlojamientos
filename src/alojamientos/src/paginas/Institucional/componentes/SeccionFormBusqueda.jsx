@@ -1,6 +1,6 @@
 import React from 'react';
-import './SeccionFormBusqueda.css';
-import casaPrincipal from '../assets/casaPortada2.png';
+import '../css/SeccionFormBusqueda.css';
+import casaPrincipal from '../../assets/casaPortada2.png';
 
 function SeccionFormBusqueda() {
   return (
