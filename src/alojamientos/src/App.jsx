@@ -4,6 +4,7 @@ import {Home} from './components/Home';
 import Institucional from './components/Institucional';
 import Administracion from './administracion/Administracion';
 import Contactanos from './components/Contactanos';
+
 import './App.css';
 
 

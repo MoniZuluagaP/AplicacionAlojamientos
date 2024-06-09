@@ -8,6 +8,7 @@
   border-color: #070606;
   position: relative;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .cdest h4 {
@@ -15,11 +16,12 @@
   padding: 12px;
 }
 
-.cdest h4 a{
+.cdest h4 a {
   color: rgba(157, 106, 52);
+  text-decoration: none;
 }
 
-.cdest img{
+.cdest img {
   width: 100%;
   height: auto;
 }
@@ -38,4 +40,55 @@
   max-height: 55px;
   color: #ece4dd;
   text-align: right;
+  box-sizing: border-box;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+  .cdest {
+    width: 30%;
+  }
+}
+
+@media (max-width: 992px) {
+  .cdest {
+    width: 45%;
+  }
+
+  .cdest p {
+    font-size: 0.8em;
+    right: -20px;
+    bottom: 10px;
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cdest {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cdest h4 {
+    padding: 10px;
+  }
+
+  .cdest p {
+    font-size: 0.8em;
+    padding: 8px 20px;
+    right: 10px;
+    bottom: 10px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cdest p {
+    font-size: 0.9em;
+    padding: 6px 15px;
+    right: 10px;
+    bottom: 10px;
+    width: 80%;
+  }
 }

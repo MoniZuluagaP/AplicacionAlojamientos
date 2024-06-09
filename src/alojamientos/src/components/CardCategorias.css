@@ -1,5 +1,5 @@
 .cardsCategorias card {
-  width: 18% ;
+  width: 18%;
   height: 350px;
   margin: auto;
   margin-top: 35px;
@@ -44,4 +44,62 @@
 
 card svg {
   margin-top: 25px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+  .cardsCategorias card {
+    width: 23%;
+  }
+}
+
+@media (max-width: 992px) {
+  .cardsCategorias card {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsCategorias card {
+    width: 45%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .cardsCategorias h4 {
+    width: 90%;
+  }
+
+  .cardsCategorias p {
+    width: 80%;
+    font-size: 0.8em;
+  }
+
+  .cardsCategorias .buscar {
+    padding: 8px 20px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsCategorias card {
+    width: 90%;
+    height: auto;
+    margin-top: 15px;
+  }
+
+  .cardsCategorias h4 {
+    width: 95%;
+    font-size: 1em;
+  }
+
+  .cardsCategorias p {
+    width: 90%;
+    font-size: 0.9em;
+  }
+
+  .cardsCategorias .buscar {
+    padding: 6px 15px;
+    font-size: 0.8em;
+  }
 }

@@ -18,20 +18,30 @@
     top: -30px;
     left: -230px;
   }
-
-  h1 .textoResaltado {
+  
+  .textResaltado {
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 41px;
     position: relative;
-    right: -25%;
+    right: -8%;
     z-index: 50;
   }
   
-  #casaPortada img{
+  .text {
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    z-index: 50;
+    top: -250px;
+    left: -280px;
+  }
+  
+  
+  #casitaPortada img{
     width: 38vw;
     position: relative;
-    top: 8px;
-    left: 80px;
+    top: -385px;
+    left: -120px;
     float: right;
     border-top-left-radius: 120px;
     border-bottom-right-radius: 120px;
