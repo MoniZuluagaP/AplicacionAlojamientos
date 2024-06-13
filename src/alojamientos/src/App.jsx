@@ -5,8 +5,6 @@ import Institucional from './paginas/Institucional/Institucional';
 import Administracion from './paginas/administracion/Administracion';
 import Contactanos from './paginas/Contactanos/Contactanos';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function App() {
   return (
