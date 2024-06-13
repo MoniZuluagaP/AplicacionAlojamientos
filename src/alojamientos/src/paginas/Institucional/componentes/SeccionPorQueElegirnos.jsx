@@ -1,18 +1,16 @@
 import React from 'react';
 import '../css/SeccionPorQueElegirnos.css';
 
-// Importa las imágenes
+// Importa la imagen
 import imagen_empresa1 from '../../assets/imagen_empresa1.jpg';
-import imagen_empresa2 from '../../assets/imagen_empresa2.jpg';
-import imagen_empresa3 from '../../assets/imagen_empresa3.jpg';
 
 function PorQueElegirnos() {
   return (
     <div className="PorQueElegirnos">
       {[1, 2, 3].map((i) => (
         <div key={i} className={`container container${i}`}>
-          {/* Utiliza las importaciones de las imágenes y referencia la imagen correspondiente */}
-          <img src={i === 1 ? imagen_empresa1 : i === 2 ? imagen_empresa2 : imagen_empresa3} alt={`Empresa XYZ ${i}`} className={`imagen-empresa imagen-${i}`} />
+          {/* Reemplaza todas las imágenes con imagen_empresa1 */}
+          <img src={imagen_empresa1} alt={`Empresa XYZ ${i}`} className={`imagen-empresa imagen-${i}`} />
           <div className="barras">
             <div className="barra-superior">
               <p>Texto 1</p>
@@ -38,6 +36,5 @@ function PorQueElegirnos() {
     </div>
   );
 }
-
 
 export default PorQueElegirnos;

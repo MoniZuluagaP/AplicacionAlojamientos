@@ -1,0 +1,70 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+/* BARRA DE NAVEGACION
+
+/* Barra de navegación */
+.barraNavegacion {
+    background-color: #A25733; /* Color de fondo personalizado */
+  }
+  
+  /* Lista de elementos de la barra de navegación */
+  .barraNavegacion ul {
+    border-bottom: 1px solid #ece4dd; /* Borde inferior con color personalizado */
+  }
+  
+  /* Elementos de la barra de navegación */
+  .barraNavegacion li {
+    margin: 5px;
+    padding: 20px;
+  }
+  
+  /* Estilos al pasar el mouse sobre los elementos */
+  .barraNavegacion li:hover {
+    background-color: #ece4dd;
+    border-radius: 30px;
+    padding: 20px;
+    color: #A25733;
+  }
+  
+  /* Enlace dentro de los elementos de la barra de navegación */
+  .barraNavegacion a {
+    color: white; /* Color del texto personalizado */
+  }
+  
+  /* Estilos al pasar el mouse sobre los enlaces */
+  .barraNavegacion a:hover {
+    color: #A25733;
+    font-weight: bold;
+  }
+  
+  /* Estilos del logo en la barra de navegación */
+  .logoBarra {
+    width: 80px;
+  }
+  
+  @media (max-width: 768px) {
+    /* Estilos para pantallas pequeñas */
+    .barraNavegacion {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .barraNavegacion ul {
+      padding: 0;
+    }
+  
+    .barraNavegacion li {
+      display: block; 
+      margin: 5px 0; 
+      text-align: center;
+    }
+  
+    .logoBarra {
+      position: relative;
+      left: auto;
+      top: auto;
+    }
+  }
+
+/* BOTON BUSQUEDA
+
+  

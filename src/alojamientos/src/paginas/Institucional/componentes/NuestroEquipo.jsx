@@ -18,15 +18,17 @@ function NuestroEquipo() {
 
   return (
     <section className="nuestro-equipo">
-      <div className="team-title">
-      <Seccion ClassName="seccion-contacto1" nombre='ESTE ES NUESTRO EQUIPO' />
+      <div className="team-title text-center py-3">
+        <Seccion className="seccion-contacto1" nombre="ESTE ES NUESTRO EQUIPO" />
       </div>
-      <div className="team-photos">
-        {fotosMiembros.map((miembro) => (
-          <div key={miembro.id} className="team-member">
-            <img src={miembro.src} alt={miembro.alt} />
-          </div>
-        ))}
+      <div className="container">
+        <div className="row team-photos justify-content-center">
+          {fotosMiembros.map((miembro) => (
+            <div key={miembro.id} className="col-6 col-sm-4 col-md-3 team-member">
+              <img src={miembro.src} alt={miembro.alt} className="img-fluid" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
