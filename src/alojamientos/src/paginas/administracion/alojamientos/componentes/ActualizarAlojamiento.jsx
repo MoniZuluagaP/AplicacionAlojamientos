@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup'; 
+import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Esquema de validación con Yup
 const validationSchema = Yup.object({
@@ -147,8 +149,12 @@ const ActualizarAlojamiento = () => {
                   <Field type="text" name="TipoAlojamiento" />
                   <ErrorMessage name="TipoAlojamiento" component="div" className="error" />
                 </div>
-                <button type="submit" disabled={isSubmitting}>Actualizar</button>
-                <button type="button" onClick={() => setSelectedAlojamiento(null)}>Cancelar</button>
+                <button type="submit" disabled={isSubmitting}>
+                  <FontAwesomeIcon icon={faEdit} /> Actualizar
+                </button>
+                <button type="button" onClick={() => setSelectedAlojamiento(null)}>
+                  <FontAwesomeIcon icon={faTimesCircle} /> Cancelar
+                </button>
               </Form>
             )}
           </Formik>
@@ -186,7 +192,9 @@ const ActualizarAlojamiento = () => {
                     <td>{alojamiento.Estado}</td>
                     <td>{alojamiento.TipoAlojamiento}</td>
                     <td>
-                      <button onClick={() => handleSelectAlojamiento(alojamiento)}>Actualizar</button>
+                      <button onClick={() => handleSelectAlojamiento(alojamiento)}>
+                        <FontAwesomeIcon icon={faEdit} /> Actualizar
+                      </button>
                     </td>
                   </tr>
                 ))}

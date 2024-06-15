@@ -17,10 +17,12 @@ h1 {
 .admin-container {
   text-align: center;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establece el mínimo alto de la página al 100% del viewport */
 }
 
 /* Estilos de Botones */
-.toggle-button,
 .menu-container button {
   padding: 10px 20px;
   margin: 10px;
@@ -33,20 +35,21 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.toggle-button:hover,
 .menu-container button:hover {
   background-color: #ECA555;
 }
 
-/* Contenedor del Menú */
-.menu-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+/* Transiciones Suaves */
+.content-section {
+  transition: opacity 0.5s ease-in-out;
 }
 
-.menu-container button {
-  margin: 0 5px;
+.content-section.enter {
+  opacity: 0;
+}
+
+.content-section.enter-active {
+  opacity: 1;
 }
 
 /* Estilos de Formularios */
@@ -166,4 +169,14 @@ table button {
 
 table button:hover {
   background-color: #ECA555;
+}
+
+.content-section {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
 }

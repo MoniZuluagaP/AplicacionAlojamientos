@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const EliminarAlojamiento = () => {
   const [alojamientos, setAlojamientos] = useState([]);
@@ -82,7 +84,9 @@ const EliminarAlojamiento = () => {
                 <td>{alojamiento.Estado}</td>
                 <td>{alojamiento.TipoAlojamiento}</td>
                 <td>
-                  <button onClick={() => eliminarAlojamiento(alojamiento.idAlojamiento)}>Eliminar</button>
+                  <button onClick={() => eliminarAlojamiento(alojamiento.idAlojamiento)}>
+                    <FontAwesomeIcon icon={faTrash} /> Eliminar
+                  </button>
                 </td>
               </tr>
             ))}
