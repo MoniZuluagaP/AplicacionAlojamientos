@@ -4,8 +4,7 @@ import TipoAlojamientoHome from '../administracion/tipo alojamiento/TipoAlojamie
 import './Admin.css';
 import Header from '../Home/componentes/Header';
 import { PFormBusqueda } from '../Home/componentes/PFormBusqueda';
-import Footer from '../Home/componentes/Footer'; // Asumiendo que ya tienes un componente Footer
-
+import Footer from '../Home/componentes/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

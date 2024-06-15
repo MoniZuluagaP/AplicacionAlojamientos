@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './BuscarAlojamiento.css'; // Importa el archivo de estilos específicos
+import './BuscarAlojamiento.css';
 
 const BuscarAlojamiento = () => {
   const [alojamientos, setAlojamientos] = useState([]);
@@ -56,11 +56,7 @@ const BuscarAlojamiento = () => {
   };
 
   const handleShowDetails = (alojamiento) => {
-    // Aquí puedes implementar la lógica para mostrar los detalles ampliados
-    // Podrías usar un modal, un componente de detalles, etc.
     console.log('Mostrar detalles de:', alojamiento);
-    // Por ejemplo, podrías abrir un modal o navegar a una página de detalles:
-    // history.push(`/alojamiento/${alojamiento.idAlojamiento}`);
   };
 
   const indexOfLastAlojamiento = currentPage * alojamientosPerPage;

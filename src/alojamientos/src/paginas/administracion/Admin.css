@@ -19,7 +19,7 @@ h1 {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Establece el mínimo alto de la página al 100% del viewport */
+  min-height: 100vh;
 }
 
 /* Estilos de Botones */
