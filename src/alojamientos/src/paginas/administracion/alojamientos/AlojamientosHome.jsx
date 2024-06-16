@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faEdit, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faEdit, faTrash, faSearch, faBed} from '@fortawesome/free-solid-svg-icons';
 import CrearAlojamiento from './componentes/CrearAlojamiento';
 import ActualizarAlojamiento from './componentes/ActualizarAlojamiento';
 import EliminarAlojamiento from './componentes/EliminarAlojamiento';
@@ -12,6 +12,7 @@ const AlojamientosHome = () => {
   const [section, setSection] = useState(null);
   const [transition, setTransition] = useState(false);
 
+  
   const handleClick = (sectionName) => {
     setTransition(true);
     setTimeout(() => {
@@ -23,7 +24,7 @@ const AlojamientosHome = () => {
   return (
     <div className={`admin-container ${section ? 'hidden' : ''}`}>
       <ToastContainer />
-      <h1>Alojamientos</h1>
+      <h1><FontAwesomeIcon icon={faBed} /> Alojamientos</h1>
       <div className={`menu-container ${section ? 'hidden' : ''}`}>
         <button className={section === 'crear' ? 'active' : ''} onClick={() => handleClick('crear')}>
           <FontAwesomeIcon icon={faPlus} /> Crear Alojamiento

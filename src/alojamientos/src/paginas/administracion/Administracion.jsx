@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import AlojamientosHome from '../administracion/alojamientos/AlojamientosHome';
 import TipoAlojamientoHome from '../administracion/tipo alojamiento/TipoAlojamientoHome';
+import Portada from './Portada';
+import Footeradmin from './FooterAdmin';
 import './Admin.css';
-import Header from '../Home/componentes/Header';
-import { PFormBusqueda } from '../Home/componentes/PFormBusqueda';
-import Footer from '../Home/componentes/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBed, faImages, faConciergeBell } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBed, faImages, faConciergeBell, faHomeAlt, faHomeUser, faHotel } from '@fortawesome/free-solid-svg-icons';
 
 const Administracion = () => {
   const [section, setSection] = useState('administracion');
@@ -33,8 +32,7 @@ const Administracion = () => {
   return (
     <div className="admin-container">
       <ToastContainer />
-      <Header />
-      <PFormBusqueda />
+      <Portada />
       <h1>Administración</h1>
       <div className="menu-container">
         {section !== 'administracion' && (
@@ -51,7 +49,7 @@ const Administracion = () => {
               <FontAwesomeIcon icon={faBed} /> Alojamientos
             </button>
             <button className={section === 'tipo alojamiento' ? 'active' : ''} onClick={() => handleClick('tipo alojamiento')}>
-              <FontAwesomeIcon icon={faImages} /> Tipo Alojamiento
+              <FontAwesomeIcon icon={faHotel} /> Tipo Alojamiento
             </button>
             <button className={section === 'imagenes' ? 'active' : ''} onClick={() => handleClick('imagenes')}>
               <FontAwesomeIcon icon={faImages} /> Imágenes
@@ -69,7 +67,7 @@ const Administracion = () => {
         {section === 'alojamientos' && <AlojamientosHome />}
         {section === 'tipo alojamiento' && <TipoAlojamientoHome />}
       </div>
-      <Footer />
+      <Footeradmin />
     </div>
   );
 };

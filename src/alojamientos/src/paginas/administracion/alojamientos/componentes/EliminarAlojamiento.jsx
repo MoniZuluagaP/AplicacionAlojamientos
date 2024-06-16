@@ -3,6 +3,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faIdCard, faInfoCircle, faMapMarkerAlt, faMoneyBillAlt, faBed, faBath, faCheckCircle, faHome, faEdit } from '@fortawesome/free-solid-svg-icons';
+
 
 const EliminarAlojamiento = () => {
   const [alojamientos, setAlojamientos] = useState([]);
@@ -56,18 +58,18 @@ const EliminarAlojamiento = () => {
       {alojamientos.length > 0 ? (
         <table>
           <thead>
-            <tr>
-              <th>ID</th>
-              <th>Título</th>
-              <th>Descripción</th>
-              <th>Latitud</th>
-              <th>Longitud</th>
-              <th>Precio por Día</th>
-              <th>Cantidad de Dormitorios</th>
-              <th>Cantidad de Baños</th>
-              <th>Estado</th>
-              <th>Tipo de Alojamiento</th>
-              <th>Acciones</th>
+          <tr>
+              <th><FontAwesomeIcon icon={faIdCard}/>Id</th>
+              <th><FontAwesomeIcon icon={faInfoCircle} /> Título</th>
+              <th><FontAwesomeIcon icon={faInfoCircle} /> Descripción</th>
+              <th><FontAwesomeIcon icon={faMapMarkerAlt} /> Latitud</th>
+              <th><FontAwesomeIcon icon={faMapMarkerAlt} /> Longitud</th>
+              <th><FontAwesomeIcon icon={faMoneyBillAlt} /> Precio por Día</th>
+              <th><FontAwesomeIcon icon={faBed} /> Cantidad de Dormitorios</th>
+              <th><FontAwesomeIcon icon={faBath} /> Cantidad de Baños</th>
+              <th><FontAwesomeIcon icon={faCheckCircle} /> Estado</th>
+              <th><FontAwesomeIcon icon={faHome} /> Tipo de Alojamiento</th>
+              <th><FontAwesomeIcon icon={faEdit} /> Acciones</th>
             </tr>
           </thead>
           <tbody>

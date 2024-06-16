@@ -97,12 +97,13 @@
   .alojamiento-card h3 {
     color: #000;
     margin-bottom: 10px;
+    text-align: left;
   }
   
   .alojamiento-card p {
     color: #666;
     margin-bottom: 5px;
-    text-align: start center;
+    text-align: justify;
   }
   
   .no-results {

@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faSpinner, faListCheck, faIdCard, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import './TipoAlojamiento.css';
 
@@ -103,8 +103,8 @@ const TipoAlojamiento = () => {
   return (
     <div className="tipo-alojamiento-container">
       <div className="crear-card card">
-        <h2>{isEditing ? 'Editar Tipo Alojamiento' : 'Crear Tipo Alojamiento'}</h2>
-        <Formik
+      <h2><FontAwesomeIcon icon={faEdit} /> {isEditing ? 'Editar Tipo Alojamiento' : 'Crear Tipo Alojamiento'}</h2>
+      <Formik
           initialValues={isEditing ? editingTipoAlojamiento : initialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -119,11 +119,15 @@ const TipoAlojamiento = () => {
               </div>
               <div className="button-group">
                 <button type="submit" className="submit-button" disabled={isSubmitting}>
-                  {isSubmitting ? 'Guardando...' : 'Guardar'}
+                  {isSubmitting ? (
+                    <span><FontAwesomeIcon icon={faSpinner} spin /> Guardando...</span>
+                  ) : (
+                    <span><FontAwesomeIcon icon={faEdit} /> {isEditing ? 'Editar' : 'Guardar'}</span>
+                  )}
                 </button>
                 {isEditing && (
                   <button type="button" className="cancel-button" onClick={cancelEdit}>
-                    Cancelar
+                    <FontAwesomeIcon icon={faTrashAlt} /> Cancelar
                   </button>
                 )}
               </div>
@@ -133,7 +137,7 @@ const TipoAlojamiento = () => {
       </div>
 
       <div className="listar-card card">
-        <h2>Listado de Tipos de Alojamientos</h2>
+        <h2><FontAwesomeIcon icon={faListCheck} />Listado de Tipos de Alojamientos</h2>
         {isLoading ? (
           <p>Cargando tipos de alojamientos...</p>
         ) : (
@@ -141,9 +145,9 @@ const TipoAlojamiento = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Descripción</th>
-                  <th>Acciones</th>
+                  <th><FontAwesomeIcon icon={faIdCard}/> Id</th>
+                  <th><FontAwesomeIcon icon={faInfoCircle}/> Descripción</th>
+                  <th><FontAwesomeIcon icon={faEdit} /> Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,12 +157,10 @@ const TipoAlojamiento = () => {
                     <td>{tipo.Descripcion}</td>
                     <td>
                       <button onClick={() => handleEdit(tipo)} className="edit-button">
-                        <FontAwesomeIcon icon={faEdit} />
-                        Editar
+                        <FontAwesomeIcon icon={faEdit} /> Editar
                       </button>
                       <button onClick={() => handleDelete(tipo.idTipoAlojamiento)} className="delete-button">
-                        <FontAwesomeIcon icon={faTrashAlt} />
-                        Eliminar
+                        <FontAwesomeIcon icon={faTrashAlt} /> Eliminar
                       </button>
                     </td>
                   </tr>

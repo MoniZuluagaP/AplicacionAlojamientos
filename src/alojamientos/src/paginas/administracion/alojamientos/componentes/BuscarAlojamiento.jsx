@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faPencilAlt, faKey, faCheckCircle, faTimesCircle, faMapMarkerAlt, faMoneyBillAlt, faBed, faBath, faList} from '@fortawesome/free-solid-svg-icons';
 import './BuscarAlojamiento.css';
 
 const BuscarAlojamiento = () => {
@@ -36,19 +38,22 @@ const BuscarAlojamiento = () => {
     fetchAlojamientos();
   }, []);
 
-  useEffect(() => {
-    const filterAlojamientos = () => {
-      let filtered = alojamientos.filter(alojamiento => alojamiento.PrecioPorDia >= precioMinimo && alojamiento.PrecioPorDia <= precioMaximo);
-      if (estadoFiltro !== '') {
-        filtered = filtered.filter(alojamiento => alojamiento.Estado.toLowerCase() === estadoFiltro.toLowerCase());
-      }
-      if (cantidadHabitaciones !== '') {
-        filtered = filtered.filter(alojamiento => alojamiento.CantidadDormitorios >= cantidadHabitaciones);
-      }
-      setFilteredAlojamientos(filtered);
-    };
+  // Opciones para los desplegables de precio mínimo y máximo
+  const precioMinimoOptions = [0, 50, 100, 200, 500];
+  const precioMaximoOptions = [100, 200, 300, 400, 500, 1000, 2000, Number.MAX_SAFE_INTEGER];
 
-    filterAlojamientos();
+  // Opciones para el desplegable de cantidad mínima de habitaciones
+  const cantidadHabitacionesOptions = ['', 1, 2, 3, 4, 5];
+
+  // Optimización del filtrado utilizando useMemo
+  const filteredData = useMemo(() => {
+    let filtered = alojamientos.filter(alojamiento =>
+      alojamiento.PrecioPorDia >= precioMinimo &&
+      alojamiento.PrecioPorDia <= precioMaximo &&
+      (estadoFiltro === '' || alojamiento.Estado.toLowerCase() === estadoFiltro.toLowerCase()) &&
+      (cantidadHabitaciones === '' || alojamiento.CantidadDormitorios >= cantidadHabitaciones)
+    );
+    return filtered;
   }, [alojamientos, precioMinimo, precioMaximo, estadoFiltro, cantidadHabitaciones]);
 
   const handlePageChange = (pageNumber) => {
@@ -61,7 +66,7 @@ const BuscarAlojamiento = () => {
 
   const indexOfLastAlojamiento = currentPage * alojamientosPerPage;
   const indexOfFirstAlojamiento = indexOfLastAlojamiento - alojamientosPerPage;
-  const currentAlojamientos = filteredAlojamientos.slice(indexOfFirstAlojamiento, indexOfLastAlojamiento);
+  const currentAlojamientos = filteredData.slice(indexOfFirstAlojamiento, indexOfLastAlojamiento);
 
   if (loading) {
     return <p className="loading-message">Cargando alojamientos...</p>;
@@ -72,15 +77,23 @@ const BuscarAlojamiento = () => {
       <ToastContainer />
       <div className="search-and-list-container">
         <div className="search-form">
-          <h2>Listado de Alojamientos</h2>
+        <h2><FontAwesomeIcon icon={faList}/> Listado de Alojamientos</h2>
           <div className="price-filter">
-            <label>Precio mínimo:</label>
-            <input type="number" value={precioMinimo} onChange={(e) => setPrecioMinimo(parseInt(e.target.value) || 0)} />
-            <label>Precio máximo:</label>
-            <input type="number" value={precioMaximo} onChange={(e) => setPrecioMaximo(parseInt(e.target.value) || Number.MAX_SAFE_INTEGER)} />
+            <label><FontAwesomeIcon icon={faMoneyBillAlt} /> Precio mínimo:</label>
+            <select value={precioMinimo} onChange={(e) => setPrecioMinimo(parseInt(e.target.value))}>
+              {precioMinimoOptions.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+            <label><FontAwesomeIcon icon={faMoneyBillAlt} /> Precio máximo:</label>
+            <select value={precioMaximo} onChange={(e) => setPrecioMaximo(parseInt(e.target.value))}>
+              {precioMaximoOptions.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
           </div>
           <div className="estado-filter">
-            <label>Estado:</label>
+            <label><FontAwesomeIcon icon={faCheckCircle} />Estado:</label>
             <select value={estadoFiltro} onChange={(e) => setEstadoFiltro(e.target.value)}>
               <option value="">Todos</option>
               <option value="Disponible">Disponible</option>
@@ -88,8 +101,12 @@ const BuscarAlojamiento = () => {
             </select>
           </div>
           <div className="habitaciones-filter">
-            <label>Cantidad de Habitaciones mínima:</label>
-            <input type="number" value={cantidadHabitaciones} onChange={(e) => setCantidadHabitaciones(parseInt(e.target.value) || '')} />
+            <label><FontAwesomeIcon icon={faBed} /> Cantidad de Habitaciones mínima:</label>
+            <select value={cantidadHabitaciones} onChange={(e) => setCantidadHabitaciones(parseInt(e.target.value))}>
+              {cantidadHabitacionesOptions.map(option => (
+                <option key={option} value={option}>{option === '' ? 'Cualquiera' : option}</option>
+              ))}
+            </select>
           </div>
         </div>
 
@@ -98,15 +115,15 @@ const BuscarAlojamiento = () => {
             {currentAlojamientos.length > 0 ? (
               currentAlojamientos.map((alojamiento) => (
                 <div className="alojamiento-card" key={alojamiento.idAlojamiento} onClick={() => handleShowDetails(alojamiento)}>
-                  <h3>{alojamiento.Titulo}</h3>
-                  <p>{alojamiento.Descripcion}</p>
-                  <p>Latitud: {alojamiento.Latitud}</p>
-                  <p>Longitud: {alojamiento.Longitud}</p>
-                  <p>Precio por Día: {alojamiento.PrecioPorDia}</p>
-                  <p>Cantidad de Dormitorios: {alojamiento.CantidadDormitorios}</p>
-                  <p>Cantidad de Baños: {alojamiento.CantidadBanios}</p>
-                  <p>Estado: {alojamiento.Estado}</p>
-                  <p>Tipo de Alojamiento: {alojamiento.TipoAlojamiento}</p>
+                  <h3><FontAwesomeIcon icon={faHome} /> {alojamiento.Titulo}</h3>
+                  <p><FontAwesomeIcon icon={faPencilAlt} /> {alojamiento.Descripcion}</p>
+                  <p><FontAwesomeIcon icon={faMapMarkerAlt} /> {alojamiento.Latitud}</p>
+                  <p><FontAwesomeIcon icon={faMapMarkerAlt} /> {alojamiento.Longitud}</p>
+                  <p><FontAwesomeIcon icon={faMoneyBillAlt} /> Precio por Día: {alojamiento.PrecioPorDia}</p>
+                  <p><FontAwesomeIcon icon={faBed} /> Cantidad de Dormitorios: {alojamiento.CantidadDormitorios}</p>
+                  <p><FontAwesomeIcon icon={faBath} /> Cantidad de Baños: {alojamiento.CantidadBanios}</p>
+                  <p><FontAwesomeIcon icon={alojamiento.Estado === 'Disponible' ? faCheckCircle : faTimesCircle} /> Estado: {alojamiento.Estado}</p>
+                  <p><FontAwesomeIcon icon={faKey} /> Tipo de Alojamiento: {alojamiento.TipoAlojamiento}</p>
                 </div>
               ))
             ) : (

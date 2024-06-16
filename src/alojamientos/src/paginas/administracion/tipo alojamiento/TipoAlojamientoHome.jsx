@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faHotel } from '@fortawesome/free-solid-svg-icons';
 import AdminTipoAlojamiento from './componentes/AdminTipoAlojamiento';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,7 +20,7 @@ const AlojamientosHome = () => {
   return (
     <div className={`admin-container ${section ? 'hidden' : ''}`}>
       <ToastContainer />
-      <h1>Tipo Alojamientos</h1>
+      <h1><FontAwesomeIcon icon={faHotel} /> Tipo Alojamientos</h1>
       <div className={`menu-container ${section ? 'hidden' : ''}`}>
         <button onClick={() => handleClick('tipo')}>
           <FontAwesomeIcon icon={faCog} style={{ marginRight: '5px' }} />
