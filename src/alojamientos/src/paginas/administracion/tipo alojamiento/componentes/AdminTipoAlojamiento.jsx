@@ -3,22 +3,26 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faSpinner, faListCheck, faIdCard, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faSpinner, faListCheck, faIdCard, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import './TipoAlojamiento.css';
 
+// URL base de la API
 const API_BASE_URL = 'http://localhost:3001/tiposAlojamiento';
 
-const TipoAlojamiento = () => {
+const AdminTipoAlojamiento = () => {
+  // Estados para manejar la lista de tipos de alojamientos, carga, edición, etc.
   const [tiposAlojamientos, setTiposAlojamientos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [editingTipoAlojamiento, setEditingTipoAlojamiento] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  // useEffect para obtener la lista de tipos de alojamientos al montar el componente
   useEffect(() => {
     fetchTiposAlojamientos();
   }, []);
 
+  // Función para obtener la lista de tipos de alojamientos desde la API
   const fetchTiposAlojamientos = async () => {
     setIsLoading(true);
     try {
@@ -38,12 +42,15 @@ const TipoAlojamiento = () => {
     }
   };
 
+  // Valores iniciales del formulario
   const initialValues = { Descripcion: '' };
 
+  // Esquema de validación del formulario
   const validationSchema = Yup.object({
     Descripcion: Yup.string().required('La Descripción es requerida')
   });
 
+  // Función para manejar el envío del formulario
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const endpoint = isEditing
       ? `${API_BASE_URL}/putTipoAlojamiento/${editingTipoAlojamiento.idTipoAlojamiento}`
@@ -74,6 +81,7 @@ const TipoAlojamiento = () => {
     }
   };
 
+  // Función para manejar la eliminación de un tipo de alojamiento
   const handleDelete = async (idTipoAlojamiento) => {
     try {
       const response = await fetch(`${API_BASE_URL}/deleteTipoAlojamiento/${idTipoAlojamiento}`, { method: 'DELETE' });
@@ -90,11 +98,13 @@ const TipoAlojamiento = () => {
     }
   };
 
+  // Función para manejar la edición de un tipo de alojamiento
   const handleEdit = (tipoAlojamiento) => {
     setEditingTipoAlojamiento(tipoAlojamiento);
     setIsEditing(true);
   };
 
+  // Función para cancelar la edición
   const cancelEdit = () => {
     setEditingTipoAlojamiento(null);
     setIsEditing(false);
@@ -103,8 +113,8 @@ const TipoAlojamiento = () => {
   return (
     <div className="tipo-alojamiento-container">
       <div className="crear-card card">
-      <h2><FontAwesomeIcon icon={faEdit} /> {isEditing ? 'Editar Tipo Alojamiento' : 'Crear Tipo Alojamiento'}</h2>
-      <Formik
+        <h2><FontAwesomeIcon icon={faEdit} /> {isEditing ? 'Editar Tipo Alojamiento' : 'Crear Tipo Alojamiento'}</h2>
+        <Formik
           initialValues={isEditing ? editingTipoAlojamiento : initialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -137,7 +147,7 @@ const TipoAlojamiento = () => {
       </div>
 
       <div className="listar-card card">
-        <h2><FontAwesomeIcon icon={faListCheck} />Listado de Tipos de Alojamientos</h2>
+        <h2><FontAwesomeIcon icon={faListCheck} /> Listado de Tipos de Alojamientos</h2>
         {isLoading ? (
           <p>Cargando tipos de alojamientos...</p>
         ) : (
@@ -145,8 +155,8 @@ const TipoAlojamiento = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th><FontAwesomeIcon icon={faIdCard}/> Id</th>
-                  <th><FontAwesomeIcon icon={faInfoCircle}/> Descripción</th>
+                  <th><FontAwesomeIcon icon={faIdCard} /> Id</th>
+                  <th><FontAwesomeIcon icon={faInfoCircle} /> Descripción</th>
                   <th><FontAwesomeIcon icon={faEdit} /> Acciones</th>
                 </tr>
               </thead>
@@ -174,4 +184,4 @@ const TipoAlojamiento = () => {
   );
 };
 
-export default TipoAlojamiento;
+export default AdminTipoAlojamiento;

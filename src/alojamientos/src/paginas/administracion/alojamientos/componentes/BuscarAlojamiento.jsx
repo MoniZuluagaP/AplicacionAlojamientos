@@ -2,10 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPencilAlt, faKey, faCheckCircle, faTimesCircle, faMapMarkerAlt, faMoneyBillAlt, faBed, faBath, faList} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPencilAlt, faKey, faCheckCircle, faTimesCircle, faMapMarkerAlt, faMoneyBillAlt, faBed, faBath, faList } from '@fortawesome/free-solid-svg-icons';
 import './BuscarAlojamiento.css';
 
 const BuscarAlojamiento = () => {
+  // Estados para manejar los alojamientos, filtros, errores, carga y paginación
   const [alojamientos, setAlojamientos] = useState([]);
   const [filteredAlojamientos, setFilteredAlojamientos] = useState([]);
   const [error, setError] = useState('');
@@ -17,6 +18,7 @@ const BuscarAlojamiento = () => {
   const [estadoFiltro, setEstadoFiltro] = useState('');
   const [cantidadHabitaciones, setCantidadHabitaciones] = useState('');
 
+  // useEffect para obtener la lista de alojamientos al montar el componente
   useEffect(() => {
     const fetchAlojamientos = async () => {
       try {
@@ -45,29 +47,32 @@ const BuscarAlojamiento = () => {
   // Opciones para el desplegable de cantidad mínima de habitaciones
   const cantidadHabitacionesOptions = ['', 1, 2, 3, 4, 5];
 
-  // Optimización del filtrado utilizando useMemo
+  // useMemo para optimizar el filtrado de alojamientos
   const filteredData = useMemo(() => {
-    let filtered = alojamientos.filter(alojamiento =>
+    return alojamientos.filter(alojamiento =>
       alojamiento.PrecioPorDia >= precioMinimo &&
       alojamiento.PrecioPorDia <= precioMaximo &&
       (estadoFiltro === '' || alojamiento.Estado.toLowerCase() === estadoFiltro.toLowerCase()) &&
       (cantidadHabitaciones === '' || alojamiento.CantidadDormitorios >= cantidadHabitaciones)
     );
-    return filtered;
   }, [alojamientos, precioMinimo, precioMaximo, estadoFiltro, cantidadHabitaciones]);
 
+  // Manejo de cambio de página
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
+  // Función para mostrar detalles del alojamiento (actualmente solo loguea en consola)
   const handleShowDetails = (alojamiento) => {
     console.log('Mostrar detalles de:', alojamiento);
   };
 
+  // Cálculo de índices para paginación
   const indexOfLastAlojamiento = currentPage * alojamientosPerPage;
   const indexOfFirstAlojamiento = indexOfLastAlojamiento - alojamientosPerPage;
   const currentAlojamientos = filteredData.slice(indexOfFirstAlojamiento, indexOfLastAlojamiento);
 
+  // Mensaje de carga
   if (loading) {
     return <p className="loading-message">Cargando alojamientos...</p>;
   }
@@ -77,7 +82,7 @@ const BuscarAlojamiento = () => {
       <ToastContainer />
       <div className="search-and-list-container">
         <div className="search-form">
-        <h2><FontAwesomeIcon icon={faList}/> Listado de Alojamientos</h2>
+          <h2><FontAwesomeIcon icon={faList} /> Listado de Alojamientos</h2>
           <div className="price-filter">
             <label><FontAwesomeIcon icon={faMoneyBillAlt} /> Precio mínimo:</label>
             <select value={precioMinimo} onChange={(e) => setPrecioMinimo(parseInt(e.target.value))}>
@@ -93,7 +98,7 @@ const BuscarAlojamiento = () => {
             </select>
           </div>
           <div className="estado-filter">
-            <label><FontAwesomeIcon icon={faCheckCircle} />Estado:</label>
+            <label><FontAwesomeIcon icon={faCheckCircle} /> Estado:</label>
             <select value={estadoFiltro} onChange={(e) => setEstadoFiltro(e.target.value)}>
               <option value="">Todos</option>
               <option value="Disponible">Disponible</option>

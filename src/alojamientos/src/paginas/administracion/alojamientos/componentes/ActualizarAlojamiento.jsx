@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIdCard, faInfoCircle, faMapMarkerAlt, faMoneyBillAlt, faBed, faBath, faCheckCircle, faHome, faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-
 // Esquema de validación con Yup
 const validationSchema = Yup.object({
   Titulo: Yup.string().required('Título es requerido'),
@@ -20,11 +19,13 @@ const validationSchema = Yup.object({
   TipoAlojamiento: Yup.string().required('Tipo de Alojamiento es requerido')
 });
 
+// Componente principal para actualizar alojamiento
 const ActualizarAlojamiento = () => {
   const [alojamientos, setAlojamientos] = useState([]);
   const [error, setError] = useState('');
   const [selectedAlojamiento, setSelectedAlojamiento] = useState(null);
 
+  // Hook useEffect para cargar la lista de alojamientos al montar el componente
   useEffect(() => {
     const fetchAlojamientos = async () => {
       try {
@@ -43,10 +44,12 @@ const ActualizarAlojamiento = () => {
     fetchAlojamientos();
   }, []);
 
+  // Función para seleccionar un alojamiento para actualizar
   const handleSelectAlojamiento = (alojamiento) => {
     setSelectedAlojamiento(alojamiento);
   };
 
+  // Función para manejar la actualización del alojamiento
   const handleUpdate = async (values, { setSubmitting, resetForm }) => {
     try {
       const response = await fetch(`http://localhost:3001/alojamiento/putAlojamiento/${selectedAlojamiento.idAlojamiento}`, {
@@ -59,6 +62,7 @@ const ActualizarAlojamiento = () => {
 
       if (response.ok) {
         const updatedAlojamiento = await response.json();
+        // Actualizar la lista de alojamientos con los datos actualizados
         setAlojamientos(alojamientos.map(alojamiento =>
           alojamiento.idAlojamiento === selectedAlojamiento.idAlojamiento
             ? updatedAlojamiento
@@ -73,7 +77,7 @@ const ActualizarAlojamiento = () => {
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setSubmitting(false);
+      setSubmitting(false); // Finalizar la carga del formulario
     }
   };
 
@@ -166,7 +170,7 @@ const ActualizarAlojamiento = () => {
             <table>
               <thead>
                 <tr>
-                  <th><FontAwesomeIcon icon={faIdCard}/> Id</th>
+                  <th><FontAwesomeIcon icon={faIdCard} /> Id</th>
                   <th><FontAwesomeIcon icon={faInfoCircle} /> Título</th>
                   <th><FontAwesomeIcon icon={faInfoCircle} /> Descripción</th>
                   <th><FontAwesomeIcon icon={faMapMarkerAlt} /> Latitud</th>

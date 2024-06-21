@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faHotel } from '@fortawesome/free-solid-svg-icons';
-import AdminTipoAlojamiento from './componentes/AdminTipoAlojamiento';
+import { faPlus, faEdit, faTrash, faSearch, faBed} from '@fortawesome/free-solid-svg-icons';
+import CrearServicio from './CrearServicio';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const AlojamientosHome = () => {
-  // Estados para manejar la sección actual y las transiciones
+const ServicioHome = () => {
   const [section, setSection] = useState(null);
   const [transition, setTransition] = useState(false);
 
-  // Función para manejar los clics en los botones del menú
+  
   const handleClick = (sectionName) => {
-    // Inicia la transición
     setTransition(true);
     setTimeout(() => {
-      // Cambia la sección después de la transición
       setSection(sectionName);
       setTransition(false);
     }, 500);
@@ -24,18 +21,17 @@ const AlojamientosHome = () => {
   return (
     <div className={`admin-container ${section ? 'hidden' : ''}`}>
       <ToastContainer />
-      <h1><FontAwesomeIcon icon={faHotel} /> Tipo Alojamientos</h1>
+      <h1><FontAwesomeIcon icon={faBed} /> Servicios</h1>
       <div className={`menu-container ${section ? 'hidden' : ''}`}>
-        <button onClick={() => handleClick('tipo')}>
-          <FontAwesomeIcon icon={faCog} style={{ marginRight: '5px' }} />
-          Administrar Tipo de alojamiento
+        <button className={section === 'crear' ? 'active' : ''} onClick={() => handleClick('crear')}>
+          <FontAwesomeIcon icon={faPlus} /> Crear Servicios
         </button>
       </div>
       <div className={`content-section ${transition ? 'enter' : 'enter-active'}`}>
-        {section === 'tipo' && <AdminTipoAlojamiento />}
+        {section === 'crear' && <CrearServicio />}
       </div>
     </div>
   );
 };
 
-export default AlojamientosHome;
+export default ServicioHome;

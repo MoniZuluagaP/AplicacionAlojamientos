@@ -1,0 +1,168 @@
+h1 .textoResaltado {
+  font-weight: bolder;
+  font-size: 40px;
+  position: relative;
+  right: -25%;
+  z-index: 50;
+}
+
+.tituloPrincipal {
+  margin-top: 0;
+  position: absolute;
+  font-size: 35px;
+  font-weight: normal;
+  z-index: 50;
+  top: 120px;
+  left: 200px;
+}
+
+#casaPortada img {
+  width: 38vw;
+  position: relative;
+  top: -210px;
+  left: -150px;
+  float: right;
+  border-top-left-radius: 120px;
+  border-bottom-right-radius: 120px;
+  height: 45vh;
+  background-color: #070606;
+  z-index: 30;
+}
+
+@media screen and (min-width: 375px) and (max-width: 991px) {
+  /* MOBILE L */
+  .EncabezadoFormularioImagen {
+    width: 150vw;
+    top: 10vw;
+    left: 150px;
+  }
+
+  .EncabezadoFormularioImagen h1 {
+    font-size: 40px;
+    top: -450px;
+    left: -50px;
+    z-index: 30;
+  }
+
+  h1 .textoResaltado {
+    font-size: 45px;
+  }
+
+  #casaPortada img {
+    width: 180vw;
+    top: -300px;
+    left: -50px;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    height: 35vh;
+    z-index: 10;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 991px) {
+  /* MOBILE L */
+  .EncabezadoFormularioImagen {
+    width: 900vw;
+    top: 250vw;
+    left: 950px;
+  }
+
+  .EncabezadoFormularioImagen h1 {
+    font-size: 80px;
+    top: -1450px;
+    left: -800px;
+    z-index: 30;
+  }
+
+  h1 .textoResaltado {
+    font-size: 85px;
+  }
+
+  #casaPortada img {
+    width: 200vw;
+    top: -450px;
+    left: -3250px;
+    border-top-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+    height: 35vh;
+    z-index: 10;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /*PANTALLAS LAPTOP*/
+  .EncabezadoFormularioImagen {
+    width: 200vw;
+    top: -13vw;
+    left: 350px;
+  }
+
+  .EncabezadoFormularioImagen h1 {
+    font-size: 40px;
+    top: -10px;
+    left: -360px;
+  }
+
+  h1 .textoResaltado {
+    font-size: 45px;
+  }
+
+  #casaPortada img {
+    width: 55vw;
+    top: -120px;
+    left: -1850px;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1440px) {
+  /*PANTALLAS LAPTOP L */
+  .EncabezadoFormularioImagen {
+    width: 200vw;
+    top: -13vw;
+    left: 350px;
+  }
+
+  .EncabezadoFormularioImagen h1 {
+    font-size: 40px;
+    top: -10px;
+    left: -360px;
+  }
+
+  h1 .textoResaltado {
+    font-size: 45px;
+  }
+
+  #casaPortada img {
+    width: 55vw;
+    top: auto;
+    left: -1850px;
+    border-top-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  /* PANTALLAS 4K */
+  .EncabezadoFormularioImagen h1 {
+    font-size: 60px;
+    top: 50px;
+    left: -70px;
+  }
+
+  h1 .textoResaltado {
+    font-size: 65px;
+  }
+
+  #casaPortada img {
+    width: 45vw;
+    top: 60px;
+    left: 250px;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    height: 75vh;
+  }
+}

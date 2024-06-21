@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from "./componentes/Header";
-import {PFormBusqueda} from "./componentes/PFormBusqueda";
+/*import PFormBusqueda from "./componentes/PFormBusqueda";*/
+import EncabezadoImagen from "./componentes/EncabezadoImagen";
 import {Presentacion} from "./componentes/Presentacion";
 import {Seccion} from "./componentes/Seccion";
 import SeccionDestacadas from "./componentes/SeccionDestacadas";
@@ -12,7 +13,7 @@ export function Home() {
     return (
         <div>
             <Header />
-            <PFormBusqueda />
+            <EncabezadoImagen />
             <Presentacion />
             <Seccion ClassName='destacadas' nombre='ALOJAMIENTOS DESTACADOS' />
             <SeccionDestacadas />

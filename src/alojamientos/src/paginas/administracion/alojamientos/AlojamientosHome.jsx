@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faEdit, faTrash, faSearch, faBed} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faEdit, faTrash, faSearch, faBed } from '@fortawesome/free-solid-svg-icons';
 import CrearAlojamiento from './componentes/CrearAlojamiento';
 import ActualizarAlojamiento from './componentes/ActualizarAlojamiento';
 import EliminarAlojamiento from './componentes/EliminarAlojamiento';
@@ -9,10 +9,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AlojamientosHome = () => {
+  // Estados para manejar la sección actual y las transiciones
   const [section, setSection] = useState(null);
   const [transition, setTransition] = useState(false);
 
-  
+  // Función para manejar los clics en los botones del menú
   const handleClick = (sectionName) => {
     setTransition(true);
     setTimeout(() => {

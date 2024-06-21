@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from 'formik'; 
+import * as Yup from 'yup'; 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Componente principal para la creación de alojamiento
 const CrearAlojamiento = () => {
-  const [tiposAlojamiento, setTiposAlojamiento] = useState([]);
+  const [tiposAlojamiento, setTiposAlojamiento] = useState([]); // Estado para almacenar los tipos de alojamiento disponibles
 
+  // Hook useEffect para cargar los tipos de alojamiento al montar el componente
   useEffect(() => {
-    fetchTiposAlojamiento();
+    fetchTiposAlojamiento(); // Llama a la función para obtener tipos de alojamiento
   }, []);
 
+  // Función asíncrona para obtener los tipos de alojamiento desde el backend
   const fetchTiposAlojamiento = async () => {
-    const endpoint = 'http://localhost:3001/tiposAlojamiento/getTiposAlojamiento';
+    const endpoint = 'http://localhost:3001/tiposAlojamiento/getTiposAlojamiento'; // Endpoint para obtener tipos de alojamiento
 
     try {
-      const response = await fetch(endpoint);
+      const response = await fetch(endpoint); // Petición GET a la API
       if (response.ok) {
-        const data = await response.json();
-        setTiposAlojamiento(data);
+        const data = await response.json(); // Convertir respuesta a JSON
+        setTiposAlojamiento(data); // Actualizar el estado con los tipos de alojamiento obtenidos
       } else {
-        throw new Error('Error al cargar tipos de alojamiento');
+        throw new Error('Error al cargar tipos de alojamiento'); // Lanzar error si la respuesta no es exitosa
       }
     } catch (error) {
-      console.error('Error:', error);
-      toast.error('Error al cargar tipos de alojamiento');
+      console.error('Error:', error); // Manejo de errores en la consola
+      toast.error('Error al cargar tipos de alojamiento'); // Mostrar notificación de error
     }
   };
 
+  // Esquema de validación de Formik utilizando Yup
   const validationSchema = Yup.object({
     Titulo: Yup.string().required('Título es requerido'),
     Descripcion: Yup.string().required('Descripción es requerida'),
@@ -38,46 +42,47 @@ const CrearAlojamiento = () => {
     Longitud: Yup.number()
       .required('Longitud es requerida')
       .min(-180, 'Longitud mínima es -180')
-      .max(180, 'Longitud máxima es 180'),
+      .max(180, 'Longitud máxima es 180'), // Validación para Longitud
     PrecioPorDia: Yup.number()
       .required('Precio por Día es requerido')
-      .positive('Debe ser un número positivo'),
+      .positive('Debe ser un número positivo'), // Validación para PrecioPorDia
     CantidadDormitorios: Yup.number()
       .required('Cantidad de Dormitorios es requerida')
       .positive('Debe ser un número positivo')
-      .integer('Debe ser un número entero'),
+      .integer('Debe ser un número entero'), // Validación para CantidadDormitorios
     CantidadBanios: Yup.number()
       .required('Cantidad de Baños es requerida')
       .positive('Debe ser un número positivo')
       .integer('Debe ser un número entero'),
-    Estado: Yup.string().required('Estado es requerido'),
+    Estado: Yup.string().required('Estado es requerido'), 
     TipoAlojamiento: Yup.string().required('Tipo de Alojamiento es requerido'),
   });
 
+  // Función para manejar el envío del formulario
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const endpoint = 'http://localhost:3001/alojamiento/createAlojamiento';
+    const endpoint = 'http://localhost:3001/alojamiento/createAlojamiento'; // Endpoint para crear un nuevo alojamiento
 
     try {
       const response = await fetch(endpoint, {
-        method: 'POST',
+        method: 'POST', // Método POST para enviar datos
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // Cabecera para enviar datos JSON
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(values), // Convertir valores a JSON y enviar en el cuerpo de la petición
       });
 
       if (response.ok) {
-        toast.success('Alojamiento creado con éxito');
-        resetForm();
+        toast.success('Alojamiento creado con éxito'); // Mostrar notificación de éxito
+        resetForm(); // Resetear el formulario después de una creación exitosa
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Error al crear el alojamiento');
+        const errorData = await response.json(); // Convertir respuesta de error a JSON
+        throw new Error(errorData.message || 'Error al crear el alojamiento'); // Lanzar error con mensaje personalizado
       }
     } catch (error) {
-      console.error('Error:', error);
-      toast.error(error.message || 'Error al crear el alojamiento');
+      console.error('Error:', error); // Manejo de errores en la consola
+      toast.error(error.message || 'Error al crear el alojamiento'); // Mostrar mensaje de error en notificación
     } finally {
-      setSubmitting(false);
+      setSubmitting(false); // Finalizar la carga del formulario
     }
   };
 
@@ -93,37 +98,37 @@ const CrearAlojamiento = () => {
           PrecioPorDia: '',
           CantidadDormitorios: '',
           CantidadBanios: '',
-          Estado: 'Disponible',
-          TipoAlojamiento: '',
+          Estado: 'Disponible', // Valor por defecto para Estado
+          TipoAlojamiento: '', // Valor por defecto para TipoAlojamiento
         }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        validationSchema={validationSchema} // Esquema de validación a aplicar
+        onSubmit={handleSubmit} // Función a ejecutar al enviar el formulario
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting }) => ( // Renderizado del formulario usando render props
           <Form>
             <div>
               <label>Título:</label>
-              <Field type="text" name="Titulo" />
-              <ErrorMessage name="Titulo" component="div" className="error" />
+              <Field type="text" name="Titulo" /> 
+              <ErrorMessage name="Titulo" component="div" className="error" /> 
             </div>
             <div>
               <label>Descripción:</label>
-              <Field as="textarea" name="Descripcion" />
-              <ErrorMessage name="Descripcion" component="div" className="error" />
+              <Field as="textarea" name="Descripcion" /> 
+              <ErrorMessage name="Descripcion" component="div" className="error" /> 
             </div>
             <div>
               <label>Latitud:</label>
-              <Field type="number" step="0.00000001" name="Latitud" />
-              <ErrorMessage name="Latitud" component="div" className="error" />
+              <Field type="number" step="0.00000001" name="Latitud" /> 
+              <ErrorMessage name="Latitud" component="div" className="error" /> 
             </div>
             <div>
               <label>Longitud:</label>
-              <Field type="number" step="0.00000001" name="Longitud" />
-              <ErrorMessage name="Longitud" component="div" className="error" />
+              <Field type="number" step="0.00000001" name="Longitud" /> 
+              <ErrorMessage name="Longitud" component="div" className="error" /> 
             </div>
             <div>
               <label>Precio por Día:</label>
-              <Field type="number" step="0.01" name="PrecioPorDia" />
+              <Field type="number" step="0.01" name="PrecioPorDia" /> 
               <ErrorMessage name="PrecioPorDia" component="div" className="error" />
             </div>
             <div>
@@ -133,28 +138,28 @@ const CrearAlojamiento = () => {
             </div>
             <div>
               <label>Cantidad de Baños:</label>
-              <Field type="number" name="CantidadBanios" />
-              <ErrorMessage name="CantidadBanios" component="div" className="error" />
+              <Field type="number" name="CantidadBanios" /> 
+              <ErrorMessage name="CantidadBanios" component="div" className="error" /> 
             </div>
             <div>
               <label>Estado:</label>
-              <Field as="select" name="Estado">
-                <option value="Disponible">Disponible</option>
+              <Field as="select" name="Estado"> 
+                <option value="Disponible">Disponible</option> 
                 <option value="Reservado">Reservado</option>
               </Field>
               <ErrorMessage name="Estado" component="div" className="error" />
             </div>
             <div>
               <label>Tipo de Alojamiento:</label>
-              <Field as="select" name="TipoAlojamiento">
-                <option value="">Selecciona un tipo de alojamiento</option>
-                {tiposAlojamiento.map((tipo) => (
+              <Field as="select" name="TipoAlojamiento"> {/* Campo de selección para el tipo de alojamiento */}
+                <option value="">Selecciona un tipo de alojamiento</option> {/* Opción por defecto */}
+                {tiposAlojamiento.map((tipo) => ( // Mapeo de tipos de alojamiento disponibles
                   <option key={tipo.idTipoAlojamiento} value={tipo.idTipoAlojamiento}>
                     {tipo.Descripcion}
                   </option>
                 ))}
               </Field>
-              <ErrorMessage name="TipoAlojamiento" component="div" className="error" />
+              <ErrorMessage name="TipoAlojamiento" component="div" className="error" /> 
             </div>
             <button type="submit" disabled={isSubmitting}>
               Guardar
