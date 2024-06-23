@@ -4,6 +4,7 @@ import TipoAlojamientoHome from '../administracion/tipo alojamiento/TipoAlojamie
 import Portada from './Portada';
 import Footeradmin from './FooterAdmin';
 import ServicioHome from '../administracion/servicios/ServicioHome';
+import ImagenesHome from '../administracion/imagenes/ImagenesHome';
 import './Admin.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -72,6 +73,8 @@ const Administracion = () => {
         {section === 'alojamientos' && <AlojamientosHome />}
         {section === 'tipo alojamiento' && <TipoAlojamientoHome />}
         {section === 'servicios' && <ServicioHome/>}
+        {section === 'imagenes' && <ImagenesHome/>}
+
 
 
       </div>
