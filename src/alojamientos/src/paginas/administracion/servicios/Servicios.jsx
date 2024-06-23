@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import CrearServicio from './componentes/CrearServicio;';
 import ActualizarServicio from './componentes/ActualizarServicio';
 import EliminarServicio from './componentes/EliminarServicio';
-
-
-
-
+import Buscarid from './componentes/Buscarid';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,6 +22,7 @@ const Servicios = () => {
       {section === 'crear' && <CrearServicio />}
       {section === 'Actualizar' && <ActualizarServicio />}
       {section === 'Eliminar' && <EliminarServicio />}
+      {section === 'BuscarId' && <Buscarid />}
     </div>
   );
 };

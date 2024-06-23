@@ -4,6 +4,7 @@ import { faPlus, faEdit, faTrash, faSearch, faBed} from '@fortawesome/free-solid
 import CrearServicio from './componentes/CrearServicio';
 import ActualizarServicio from './componentes/ActualizarServicio';
 import EliminarServicio from './componentes/EliminarServicio';
+import Buscarid from './componentes/Buscarid';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,11 +36,15 @@ const ServicioHome = () => {
         <button className={section === 'eliminar' ? 'active' : ''} onClick={() => handleClick('eliminar')}>
           <FontAwesomeIcon icon={faTrash} /> Eliminar Servicios
         </button>
+        <button className={section === 'buscarId' ? 'active' : ''} onClick={() => handleClick('buscarId')}>
+          <FontAwesomeIcon icon={faEdit} /> Buscar por Id
+        </button>
       </div>
       <div className={`content-section ${transition ? 'enter' : 'enter-active'}`}>
         {section === 'crear' && <CrearServicio />}
         {section === 'actualizar' && <ActualizarServicio />}
         {section === 'eliminar' && <EliminarServicio />}
+        {section === 'buscarId' && <Buscarid />}
       </div>
     </div>
   );

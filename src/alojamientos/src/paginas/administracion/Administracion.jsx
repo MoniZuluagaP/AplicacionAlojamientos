@@ -4,6 +4,7 @@ import TipoAlojamientoHome from '../administracion/tipo alojamiento/TipoAlojamie
 import Portada from './Portada';
 import Footeradmin from './FooterAdmin';
 import ServicioHome from '../administracion/servicios/ServicioHome';
+import AlojamientoServiciosHome from '../administracion/alojamientosServicios/AlojamientoServiciosHome';
 import './Admin.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,16 +12,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBed, faImages, faConciergeBell, faHomeAlt, faHomeUser, faHotel } from '@fortawesome/free-solid-svg-icons';
 
 const Administracion = () => {
-  const [section, setSection] = useState('administracion'); // Estado para gestionar la sección actual
-  const [transition, setTransition] = useState(false);  // Estado para manejar las transiciones entre secciones
-
+  const [section, setSection] = useState('administracion'); 
+  const [transition, setTransition] = useState(false);  
 
   // Función para cambiar a otra sección
   const handleClick = (sectionName) => {
-    setTransition(true);  // Activa la transición
+    setTransition(true);  
     setTimeout(() => {
-      setSection(sectionName); // Cambia a la nueva sección después de 500ms
-      setTransition(false); // Desactiva la transición
+      setSection(sectionName); 
+      setTransition(false); 
     }, 500);
   };
 
@@ -72,6 +72,7 @@ const Administracion = () => {
         {section === 'alojamientos' && <AlojamientosHome />}
         {section === 'tipo alojamiento' && <TipoAlojamientoHome />}
         {section === 'servicios' && <ServicioHome/>}
+        {section === 'alojamiento servicios' && <AlojamientoServiciosHome/>}
 
 
       </div>
