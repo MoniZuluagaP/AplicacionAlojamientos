@@ -1,19 +1,19 @@
 import React from 'react'
 import Header from "./componentes/Header";
-/*import PFormBusqueda from "./componentes/PFormBusqueda";*/
-import EncabezadoImagen from "./componentes/EncabezadoImagen";
 import {Presentacion} from "./componentes/Presentacion";
 import {Seccion} from "./componentes/Seccion";
 import SeccionDestacadas from "./componentes/SeccionDestacadas";
 import {SeccionTiposA} from "./componentes/SeccionTiposA";
 import {Footer} from "./componentes/Footer";
+import BotonBuscarAlojamientos from '../Home/componentes/BotonBuscarAlojamientos';
+
 
 
 export function Home() {
     return (
         <div>
             <Header />
-            <EncabezadoImagen />
+            <BotonBuscarAlojamientos />
             <Presentacion />
             <Seccion ClassName='destacadas' nombre='ALOJAMIENTOS DESTACADOS' />
             <SeccionDestacadas />

@@ -4,12 +4,18 @@ import TipoAlojamientoHome from '../administracion/tipo alojamiento/TipoAlojamie
 import Portada from './Portada';
 import Footeradmin from './FooterAdmin';
 import ServicioHome from '../administracion/servicios/ServicioHome';
+<<<<<<< HEAD
 import AlojamientoServiciosHome from '../administracion/alojamientosServicios/AlojamientoServiciosHome';
+=======
+import ImagenesHome from '../administracion/imagenes/ImagenesHome';
+>>>>>>> a826486fde2d39fceffed43e6a3e8eeb2e98de18
 import './Admin.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBed, faImages, faConciergeBell, faHomeAlt, faHomeUser, faHotel } from '@fortawesome/free-solid-svg-icons';
+import Formulario from '../administracion/imagenesAlojamientos/imagenAlojHome';
+
 
 const Administracion = () => {
   const [section, setSection] = useState('administracion'); 
@@ -72,7 +78,16 @@ const Administracion = () => {
         {section === 'alojamientos' && <AlojamientosHome />}
         {section === 'tipo alojamiento' && <TipoAlojamientoHome />}
         {section === 'servicios' && <ServicioHome/>}
+<<<<<<< HEAD
         {section === 'alojamiento servicios' && <AlojamientoServiciosHome/>}
+=======
+<<<<<<< HEAD
+        {section === 'imagenes' && <ImagenesHome/>}
+
+=======
+        {section === 'imagenes' && <Formulario/>}
+>>>>>>> f402f80087dc94a2764ab1164a3d69b4d2a31d0e
+>>>>>>> a826486fde2d39fceffed43e6a3e8eeb2e98de18
 
 
       </div>

@@ -18,3 +18,4 @@ router.put('/putTipoAlojamiento/:id', tipoAlojamientoController.updateTipoAlojam
 router.delete('/deleteTipoAlojamiento/:id', tipoAlojamientoController.deleteTipoAlojamiento);
 
 module.exports = router;
+
