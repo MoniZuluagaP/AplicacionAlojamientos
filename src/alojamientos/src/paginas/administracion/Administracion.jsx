@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBed, faImages, faConciergeBell, faHomeAlt, faHomeUser, faHotel } from '@fortawesome/free-solid-svg-icons';
+import Formulario from '../administracion/imagenesAlojamientos/imagenAlojHome';
+
 
 const Administracion = () => {
   const [section, setSection] = useState('administracion'); // Estado para gestionar la sección actual
@@ -73,8 +75,12 @@ const Administracion = () => {
         {section === 'alojamientos' && <AlojamientosHome />}
         {section === 'tipo alojamiento' && <TipoAlojamientoHome />}
         {section === 'servicios' && <ServicioHome/>}
+<<<<<<< HEAD
         {section === 'imagenes' && <ImagenesHome/>}
 
+=======
+        {section === 'imagenes' && <Formulario/>}
+>>>>>>> f402f80087dc94a2764ab1164a3d69b4d2a31d0e
 
 
       </div>

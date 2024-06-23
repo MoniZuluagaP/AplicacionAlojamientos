@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEdit, faTrash, faSearch, faBed} from '@fortawesome/free-solid-svg-icons';
-import CrearServicio from './CrearServicio';
+import CrearServicio from './componentes/CrearServicio';
+import ActualizarServicio from './componentes/ActualizarServicio';
+import EliminarServicio from './componentes/EliminarServicio';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,9 +28,18 @@ const ServicioHome = () => {
         <button className={section === 'crear' ? 'active' : ''} onClick={() => handleClick('crear')}>
           <FontAwesomeIcon icon={faPlus} /> Crear Servicios
         </button>
+        
+        <button className={section === 'actualizar' ? 'active' : ''} onClick={() => handleClick('actualizar')}>
+          <FontAwesomeIcon icon={faEdit} /> Actualizar Servicios
+        </button>
+        <button className={section === 'eliminar' ? 'active' : ''} onClick={() => handleClick('eliminar')}>
+          <FontAwesomeIcon icon={faTrash} /> Eliminar Servicios
+        </button>
       </div>
       <div className={`content-section ${transition ? 'enter' : 'enter-active'}`}>
         {section === 'crear' && <CrearServicio />}
+        {section === 'actualizar' && <ActualizarServicio />}
+        {section === 'eliminar' && <EliminarServicio />}
       </div>
     </div>
   );
